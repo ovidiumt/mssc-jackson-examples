@@ -1,5 +1,6 @@
 package guru.springframework.msscjacksonexamples.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Null;
 import jakarta.validation.constraints.Positive;
@@ -17,6 +18,7 @@ import java.util.UUID;
 @Builder
 public class BeerDto {
 
+    @JsonProperty("beerID")
     @Null
     private UUID id;
 
