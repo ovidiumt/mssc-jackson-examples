@@ -1,5 +1,6 @@
 package guru.springframework.msscjacksonexamples.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Null;
@@ -21,17 +22,15 @@ public class BeerDto {
     @JsonProperty("beerID")
     @Null
     private UUID id;
-
     @NotBlank
     private String beerName;
-
     @NotBlank
     private String beerStyle;
-
     @Positive
     private Long upc;
-
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private BigDecimal price;
+    @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
     private OffsetDateTime createdDate;
     private OffsetDateTime lastUpdatedDate;
 }
